@@ -12,12 +12,12 @@ Respiratory Sound Database: https://www.kaggle.com/vbookshelf/respiratory-sound-
 
 ### Requirements:
 To get started with the project make sure you have python installed.
+
+### Folder Setup:
 Here is a detailed folder setup to help you get started
 
-Folder Setup:
-
 respiratory_disorder_classification (Main Project Folder)
-- Respiratory_Sound_Database
+- Respiratory_Sound_Database (sub-folder)
 - - audio_and_txt_files , etc
 - .gitignore
 - demographic_info.txt
