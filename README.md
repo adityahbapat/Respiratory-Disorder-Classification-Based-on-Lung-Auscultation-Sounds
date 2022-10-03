@@ -19,7 +19,14 @@ Here is a detailed folder setup to help you get started
 respiratory_disorder_classification (Main Project Folder)
 - Respiratory_Sound_Database (sub-folder)
 - - audio_and_txt_files , etc
+- venv (virtual env sub folder)
 - .gitignore
 - demographic_info.txt
 - README.md
 - respiratory_disorder_classification.ipynb
+
+
+creating a virtual env:
+1. python -m venv C:\Users\"Aditya Bapat"\Desktop\project\respiratory_disorder_classification\venv (project folder path\venv)
+2. give permission for windows user: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+3. Install the req packages: eg pip install tensorflow (without venv do: pip install tensorflow --user)
