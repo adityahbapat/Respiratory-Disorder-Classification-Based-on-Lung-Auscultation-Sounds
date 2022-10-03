@@ -1,3 +1,5 @@
 Respiratory_Sound_Database/
 demographic_info.txt
 venv/
+csv_data/
+processed_audio_files/

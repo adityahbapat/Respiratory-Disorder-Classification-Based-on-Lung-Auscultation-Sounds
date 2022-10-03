@@ -29,4 +29,7 @@ respiratory_disorder_classification (Main Project Folder)
 creating a virtual env:
 1. python -m venv C:\Users\"Aditya Bapat"\Desktop\project\respiratory_disorder_classification\venv (project folder path\venv)
 2. give permission for windows user: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
-3. Install the req packages: eg pip install tensorflow (without venv do: pip install tensorflow --user)
+3. To activate: .\venv\Scripts\activate.ps1 
+4. Install the req packages: eg pip install tensorflow (without venv do: pip install tensorflow --user)
+
+GPU support for tensorflow: https://www.youtube.com/watch?v=hHWkvEcDBO0
