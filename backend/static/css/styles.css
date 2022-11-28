@@ -1,0 +1,30 @@
+.body-index{
+    background-image: url("https://post.healthline.com/wp-content/uploads/2020/08/Auscultation-732x549-thumbnail.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+.jumbotron{
+    margin-top: 6rem;
+    background-color: rgba(24, 176, 203, 0.4);
+    color: rgb(0, 0, 0);
+}
+
+.titleColor{
+color: whitesmoke;
+background-color: rgba(24, 176, 203, 0.4);
+}
+
+.prediction{
+    background-image: none;
+}
+
+@media print
+{    
+    .no-print
+    {
+        display: none !important;
+    }
+}

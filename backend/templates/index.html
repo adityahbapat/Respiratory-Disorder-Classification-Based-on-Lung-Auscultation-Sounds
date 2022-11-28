@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/styles.css')}}"
+    />
+    <title>
+      Respiratory Disorder Classification Using Lung Auscultation Sounds
+    </title>
+  </head>
+
+  <body>
+    {% if ospf %}
+    <div class="body-index">
+      <div class="titleColor">
+        <h1 class="text-center">
+          Respiratory Disorder Classification Using Lung Auscultation Sounds
+        </h1>
+      </div>
+
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <form
+            action="/"
+            method="POST"
+            enctype="multipart/form-data"
+            data-netlify="true"
+          >
+            <label for="fname">Patient Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Default"
+              id="name"
+              name="name"
+            /><br />
+            <label for="lungSounds"
+              >Input Patient Lung Auscultation Sound File (.wav format):</label
+            ><br />
+
+            <input
+              type="file"
+              name="lungSounds"
+              class="my-3"
+              onchange="readURL(this);"
+              accept=".wav"
+            />
+            <!-- <img id="lungSounds" name="lungSounds" alt="patient lung sounds" /><br /> -->
+            <!-- <input type="file" id="xray" name="xray" accept=".png,.jpeg,.jpg"><br> -->
+            <button type="submit" class="btn btn-primary my-3">Detect</button>
+          </form>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+              $("#lungSounds").attr("src", e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      </script>
+    </div>
+    {% endif %} {% if ospf == 0 %}
+    <div class="prediction">
+      <a
+        ><h1 id="demo" class="text-center my-3 py-2 border border-secondary">
+          Patient Report of {{n}}
+        </h1></a
+      >
+
+      <div class="container">
+        <h2 class="my-2 no-print">Given Sound File:</h2>
+        <!-- <img class = "my-2" src="{{lungSounds}}" alt=" {{n}} lungSounds"> -->
+        <audio controls class="no-print">
+          <source
+            src="{{lungSounds}}"
+            type="audio/wav"
+            alt=" {{n}} lung sounds"
+          />
+          Your browser does not support the audio element.
+        </audio>
+
+        <div class="jumbotron jumbotron-fluid my-2 px-2">
+          <h2>Detection Results:</h2>
+
+          <h2 class="my-2">{{res[0]}}</h2>
+          <h2 class="my-2">{{res[1]}}</h2>
+        </div>
+        <button onclick="get_pdf()" class="btn btn-primary my-3 no-print">
+          Download Patient Report
+        </button>
+      </div>
+
+      <script>
+        var x = document.getElementById("demo");
+        const t = x.innerHTML;
+        function gen_text() {
+          var x = document.getElementById("demo");
+          const y = t;
+          if (x.innerHTML === "Click to download patient Report") {
+            x.innerHTML = y;
+          } else {
+            x.innerHTML = "Click to download patient Report";
+          }
+        }
+
+        function get_pdf() {
+          window.print();
+          //   alert("pdf downloaded");
+        }
+      </script>
+    </div>
+    {% endif %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+<!-- https://api.netlify.com/api/v1/sites/180c5660-b729-4cde-8c90-77a7925de7e3/submissions -->

@@ -20,16 +20,27 @@ respiratory_disorder_classification (Main Project Folder)
 - Respiratory_Sound_Database (sub-folder)
 - - audio_and_txt_files , etc
 - venv (virtual env sub folder)
+- backend (flask app)
+- processed_audio_files
 - .gitignore
 - demographic_info.txt
 - README.md
 - respiratory_disorder_classification.ipynb
+- training
+- - train.csv
+- validation
+- - val.csv 
 
 
 creating a virtual env:
-1. python -m venv C:\Users\"Aditya Bapat"\Desktop\project\respiratory_disorder_classification\venv (project folder path\venv)
-2. give permission for windows user: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
-3. To activate: .\venv\Scripts\activate.ps1 
-4. Install the req packages: eg pip install tensorflow (without venv do: pip install tensorflow --user)
+1. `python -m venv C:\Users\"Aditya Bapat"\Desktop\project\respiratory_disorder_classification\venv` (project folder path\venv)
+2. give permission for windows user: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`
+3. To activate: `.\venv\Scripts\activate.ps1` 
+4. Install the req packages: eg `pip install tensorflow` (without venv do: pip install tensorflow --user)
 
 GPU support for tensorflow: https://www.youtube.com/watch?v=hHWkvEcDBO0
+
+### Flask App
+Flask app can be found in the backend folder
+To run the app:
+`python app.py`
