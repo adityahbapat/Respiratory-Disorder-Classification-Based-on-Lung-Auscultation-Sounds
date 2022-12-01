@@ -9,6 +9,7 @@ pneumonia and bronchiolitis, to name a few.
 
 ### Dataset Link
 Respiratory Sound Database: https://www.kaggle.com/vbookshelf/respiratory-sound-database
+The dataset includes 920 annotated recordings of varying length - 10s to 90s. These recordings were taken from 126 patients. There are a total of 5.5 hours of recordings containing 6898 respiratory cycles - 1864 contain crackles, 886 contain wheezes and 506 contain both crackles and wheezes.
 
 ### Requirements:
 To get started with the project make sure you have python installed.

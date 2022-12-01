@@ -3,6 +3,9 @@ from flask import Flask, render_template, request, url_for, redirect
 from werkzeug.utils import secure_filename
 import librosa as lb
 import librosa.display
+import matplotlib
+#  to avoid flask err of RuntimeError: main thread is not in main loop
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import rdc_model
 
@@ -27,6 +30,9 @@ def index():
 @app.route("/", methods = ['POST'])
 def patient():
     if request.method == "POST":
+        # imp to clear matplotlib cache else it will save the previous figure
+        plt.figure().clear()
+        
         print(request)
         name = request.form["name"] #taking data from dictionary
         lungSounds = request.files["lungSounds"]
