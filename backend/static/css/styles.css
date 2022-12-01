@@ -22,7 +22,9 @@ background-color: rgba(24, 176, 203, 0.4);
 }
 
 @media print
-{    
+{    body {
+    print-color-adjust: exact;
+}
     .no-print
     {
         display: none !important;

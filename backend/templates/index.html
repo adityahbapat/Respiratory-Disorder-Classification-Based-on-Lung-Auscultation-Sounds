@@ -60,7 +60,7 @@
               onchange="readURL(this);"
               accept=".wav"
             />
-            <!-- <img id="lungSounds" name="lungSounds" alt="patient lung sounds" /><br /> -->
+            
             <!-- <input type="file" id="xray" name="xray" accept=".png,.jpeg,.jpg"><br> -->
             <button type="submit" class="btn btn-primary my-3">Detect</button>
           </form>
@@ -100,12 +100,15 @@
           />
           Your browser does not support the audio element.
         </audio>
-
+        <br />
+        <img id="lungSounds" src="{{ url_for('static', filename='uploads/outSoundWave.png') }}" alt="lung sounds img" />
+        <img id="lungSounds" src="{{ url_for('static', filename='uploads/outSoundMFCC.png') }}" alt="lung sounds img" /><br />
         <div class="jumbotron jumbotron-fluid my-2 px-2">
           <h2>Detection Results:</h2>
 
           <h2 class="my-2">{{res[0]}}</h2>
           <h2 class="my-2">{{res[1]}}</h2>
+          <!-- <h2 class="my-2">{{res[2]}}</h2> -->
         </div>
         <button onclick="get_pdf()" class="btn btn-primary my-3 no-print">
           Download Patient Report

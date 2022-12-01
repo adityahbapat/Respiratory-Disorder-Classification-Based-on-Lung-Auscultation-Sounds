@@ -1,6 +1,9 @@
 import os
 from flask import Flask, render_template, request, url_for, redirect
 from werkzeug.utils import secure_filename
+import librosa as lb
+import librosa.display
+import matplotlib.pyplot as plt
 import rdc_model
 
 
@@ -39,6 +42,24 @@ def patient():
         
         # pass url of sound file to the model
         res_list = rdc_model.classificationResults(absolute_url)
+
+        # librosa can convert stereo to mono audio
+        audio1,sample_rate1 = lb.load(url,  mono=True)
+
+        soundWave = librosa.display.waveshow(audio1,sr=sample_rate1, max_points=50000, x_axis='time', offset=0)
+        # save python plot img
+        plt.savefig("./static/uploads/outSoundWave.png")
+        
+        mfccs = lb.feature.mfcc(y=audio1, sr=sample_rate1, n_mfcc=40)
+        fig, ax = plt.subplots()
+        img = librosa.display.specshow(mfccs, x_axis='time', ax=ax)
+        fig.colorbar(img, ax=ax)
+        plt.savefig("./static/uploads/outSoundMFCC.png")
+
+        url3 = os.path.join(url2,"outSoundWave.png")
+        print(url3)
+        res_list.append(os.path.abspath(url3))
+
     return render_template("index.html",ospf = 0,n = name,  lungSounds = url, res = res_list)
 
 if __name__ == "__main__":
