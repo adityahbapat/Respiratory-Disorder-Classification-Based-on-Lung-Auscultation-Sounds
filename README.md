@@ -12,7 +12,8 @@ Respiratory Sound Database: https://www.kaggle.com/vbookshelf/respiratory-sound-
 The dataset includes 920 annotated recordings of varying length - 10s to 90s. These recordings were taken from 126 patients. There are a total of 5.5 hours of recordings containing 6898 respiratory cycles - 1864 contain crackles, 886 contain wheezes and 506 contain both crackles and wheezes.
 
 ### Docker Image for the app
-https://hub.docker.com/r/adityahb333/respiratory-disorder-classification
+- https://hub.docker.com/r/adityahb333/respiratory-disorder-classification
+- Demo audio files for testing the application - https://github.com/adityahbapat/Respiratory-Disorder-Classification-Based-on-Lung-Auscultation-Sounds/tree/master/demo_audio_files
 
 ### Requirements:
 To get started with the project make sure you have python installed.
