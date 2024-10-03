@@ -69,4 +69,5 @@ def patient():
     return render_template("index.html",ospf = 0,n = name,  lungSounds = url, res = res_list)
 
 if __name__ == "__main__":
-    app.run()
+    # changes made for docker
+    app.run(host='0.0.0.0', port=5000) 
