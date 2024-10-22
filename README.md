@@ -17,6 +17,8 @@ The dataset includes 920 annotated recordings of varying length - 10s to 90s. Th
 
 ### Requirements:
 To get started with the project make sure you have python installed.
+(Backend folder has a different requirements.txt to support linux docker env)
+`pip install -r requirements.txt`
 
 ### Folder Setup:
 Here is a detailed folder setup to help you get started
@@ -35,7 +37,6 @@ respiratory_disorder_classification (Main Project Folder)
 - - train.csv
 - validation
 - - val.csv 
-
 
 creating a virtual env:
 1. `python -m venv C:\Users\"Aditya Bapat"\Desktop\project\respiratory_disorder_classification\venv` (project folder path\venv)
